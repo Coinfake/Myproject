@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title></title>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet"/>
+    <link href="../styles/admin.css" type="text/css" rel="stylesheet"/>
+    <style>
+        a.herf_style1:link {color: #ff0000; text-decoration: none}
+        a.herf_style1:visited {color: #0000ff; text-decoration: none}
+        a.herf_style1:hover {text-decoration: underline}
+    </style>
+    <script type="text/JavaScript">
+        function SwitchMenu(obj)
+        {
+            if (document.getElementById)
+            {
+                var el = document.getElementById(obj);
+                var ar = document.getElementById("serach_bar").getElementsByTagName("span");
+                if (el.style.display != "block")
+                {
+                    for (var i = 0; i < ar.length; i++)
+                    {
+                        if (ar[i].className == "serach_bar_submenu")
+                            ar[i].style.display = "none";
+                    }
+                    el.style.display = "block";
+                }
+                else
+                {
+                    el.style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div id="serach_bar" class="left">
+        <div class="serach_bar_menu" onclick="SwitchMenu('sub1')">广告管理</div>
+        <span class="serach_bar_submenu" id="sub1">
+   <a class="herf_style1" href="addAdvertise.aspx" target="frame">发布广告</a><br/>
+   <a class="herf_style1" href="AdPosition.aspx" target="frame">广告定位</a><br/>
+   <a class="herf_style1" href="AreaAd.aspx" target="frame">广告位置维护</a><br>
+  </span>
+        <div class="serach_bar_menu" onclick="SwitchMenu('sub2')">广告位管理</div>
+        <span class="serach_bar_submenu" id="sub2">
+   <a class="herf_style1" href="AddArea.aspx" target="frame">添加区位</a><br/>
+   <a class="herf_style1" href="AreaManager.aspx" target="frame">区位管理</a><br/>
+  </span>
+    </div>
+    <div>
+        <iframe id=Main name=frame src=AreaAd.aspx frameborder=0
+                marginwidth=0 marginheight=0  onclick="return Main_onclick()" style="width: 1024px; height:768px;">
+        </iframe>
+    </div>
+</form>
+</body>
+</html>
